@@ -1,27 +1,51 @@
 import java.util.Scanner;
+abstract class Shape{
+	Scanner sc=new Scanner(System.in);
+	}
+class Square extends Shape{
+	double Sides;
+	void A() {
+		System.out.println("Enter the sides of the square:");
+		Sides=sc.nextInt();
+		double ar1=Sides*Sides;
+		System.out.println("Area of the Square="+ar1);
+	}
+}
+class Triangle extends Shape{
+	double base,height;
+	void B() {
+		System.out.println("Enter the base and height of the triangle:");
+		base=sc.nextInt();
+		height=sc.nextInt();
+		double ar2=0.5*base*height;
+		System.out.println("Area of the Triangle="+ar2);
+	}
+}
+class Circle extends Shape{
+	double Radius;
+	void C() {
+		System.out.println("Enter the radius of the circle:");
+		Radius=sc.nextDouble();
+		double area=Math.PI*Radius*Radius;
+		System.out.println("Area of Circle="+area);
+	}
+}
 public class Q6 {
-
 	public static void main(String[] args) {
-		Scanner sc=new Scanner(System.in);
-		System.out.print("Enter the size of an array");
-		int n=sc.nextInt();
-		int a[]=new int[n];
-		System.out.println("Enter an array");
-		for(int i=0;i<n;i++) {
-			a[i]=sc.nextInt();
-		} 
-		int small=a[0];
-		int large=a[0];
-		for(int i=1;i<n;i++) 
-		{
-			if(a[i]<small) {
-				small=a[i];
-			}
-			if(a[i]>large) {
-				large=a[i];
-			}
+		Scanner in=new Scanner(System.in);
+		System.out.println("1 for Square,2 for Triangle and 3 for Circle");
+		int n=in.nextInt();
+		if(n==1) {
+		Square ob1=new Square();
+		ob1.A();}
+		else if(n==2) {
+		Triangle ob2=new Triangle();
+		ob2.B();}
+		else if(n==3) {
+		Circle obj3=new Circle();
+		obj3.C();}
+		else {
+			System.out.println("Null");
 		}
-			System.out.println("Small="+small);
-			System.out.println("Large="+large);
 	}
 }
